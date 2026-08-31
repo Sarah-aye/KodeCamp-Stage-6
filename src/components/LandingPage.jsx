@@ -17,41 +17,55 @@ console.log("type of data is:", typeof data);
 
 const LandingPage = () => {
   return (
-    <div className="container w-full mx-auto mt-10 px-40">
-      <div className=" items-center grid grid-cols-[auto_1fr]  gap-10">
-        <div className=" grid p-8 items-start border-r gap-4">
+    <div className="container w-full mx-auto mt-10 px-4 sm:px-8 lg:px-40">
+      <div className="items-center grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-10">
+        {/* Categories */}
+        <div className="grid p-4 sm:p-6 lg:p-8 items-start border-r-0 lg:border-r gap-4">
           {data.map((item, i) => (
-            <div className="grid gap-4 " key={i}>
-              <div className="grid ">
-                <div className="grid grid-cols-[1fr_auto] gap-10">
-                  <p className="font-poppins">{item}</p>
-                  {i < 2 && <img src="/assets/DropDown.png" alt="drop down" />}
+            <div className="grid gap-4" key={i}>
+              <div className="grid">
+                <div className="grid grid-cols-[1fr_auto] gap-6 lg:gap-10">
+                  <p className="font-poppins text-sm sm:text-base">{item}</p>
+
+                  {i < 2 && (
+                    <img
+                      src="/assets/DropDown.png"
+                      alt="drop down"
+                      className="w-4 h-4"
+                    />
+                  )}
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="grid items-center grid-cols-2 bg-black relative p-10 gap-4 ">
-          <div className="grid items-center  gap-8 p-2 border-r-2 ">
-            <div className="grid items-center grid-cols-[auto_1fr] gap-4">
+        {/* Hero */}
+        <div className="grid items-center grid-cols-1 sm:grid-cols-2 bg-black relative p-6 sm:p-8 lg:p-10 gap-6 overflow-hidden">
+          {/* Text */}
+          <div className="grid items-center gap-6 sm:gap-8 p-2 border-r-0 sm:border-r-2">
+            <div className="grid items-center grid-cols-[auto_1fr] gap-3 sm:gap-4">
               <img
                 src="/assets/appleIcon.png"
                 alt="apple icon"
-                className="w-10 h-12.25"
+                className="w-8 h-10 sm:w-10 sm:h-12.25"
               />
+
               <p className="text-gray-300 text-xs font-poppins">
                 iPhone 14 Series
               </p>
             </div>
-            <div className="grid w-73.5 gap-2">
-              <h1 className="text-wrap text-4xl text-white font-bold font-poppins">
+
+            <div className="grid gap-2">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl text-white font-bold font-poppins">
                 Up to 10%
               </h1>
-              <h1 className="text-wrap text-4xl text-white font-bold font-poppins">
+
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl text-white font-bold font-poppins">
                 off Voucher
               </h1>
             </div>
+
             <div className="flex items-center gap-2">
               <Link
                 to="/"
@@ -59,17 +73,26 @@ const LandingPage = () => {
               >
                 Show Now
               </Link>
+
               <img
                 src="/assets/arrow-right.png"
                 alt="right arrow"
-                className="size-6"
+                className="size-5 sm:size-6"
               />
             </div>
           </div>
-          <div className="grid ">
-            <img src="/assets/phoneIcon.png" alt="phone image" className="" />
+
+          {/* Phone */}
+          <div className="flex items-center justify-center">
+            <img
+              src="/assets/phoneIcon.png"
+              alt="phone image"
+              className="w-full max-w-xs sm:max-w-sm object-contain"
+            />
           </div>
-          <div className="flex items-center gap-2 absolute left-75  bottom-2">
+
+          {/* Dots */}
+          <div className="flex items-center gap-2 absolute left-1/2 -translate-x-1/2 bottom-2 sm:left-1/2">
             {[...Array(5)].map((_, i) => (
               <div
                 key={i}

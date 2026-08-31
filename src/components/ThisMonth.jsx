@@ -4,37 +4,44 @@ import StarComponent from "./starComponent";
 
 const ThisMonth = () => {
   return (
-    <div className="container mx-auto px-40 flex flex-col gap-10  w-full items-center justify-between mt-10">
-      <div className="flex flex-col justify-between items-center h-auto w-full gap-8 ">
-        <div className="flex justify-between items-end gap-80 h-full w-full">
-          <div className="flex gap-10 ">
-            <div className="flex flex-col  gap-4">
+    <div className="container mx-auto px-4 sm:px-8 lg:px-40 flex flex-col gap-10 w-full items-center justify-between mt-10">
+      <div className="flex flex-col justify-between items-center h-auto w-full gap-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 sm:gap-10 lg:gap-80 h-full w-full">
+          <div className="flex gap-10">
+            <div className="flex flex-col gap-4">
               <div className="flex items-end h-auto w-auto gap-3">
                 <div className="bg-[#DB4444] h-fit w-4 rounded-s-sm">
                   <button></button>
                 </div>
+
                 <p className="text-[#DB4444] font-bold">This Month</p>
               </div>
+
               <div className="flex items-end bottom-1">
-                <h1 className="font-extrabold font-poppins text-3xl self-end pb-0 flex-nowrap">
+                <h1 className="font-extrabold font-poppins text-2xl sm:text-3xl self-end pb-0">
                   Best Selling Products
                 </h1>
               </div>
             </div>
           </div>
-          <div className="h-fit w-fit  flex items-end justify-between self-end">
-            <button className="bg-[#DB4444] px-4 py-2 rounded-sm font-poppins text-sm text-white">
+
+          <div className="h-fit w-fit flex items-end justify-between self-end">
+            <button className="bg-[#DB4444] px-4 py-2 rounded-sm font-poppins text-sm text-white whitespace-nowrap">
               View All
             </button>
           </div>
         </div>
 
-        <div className="flex w-full gap-4">
+        {/* Products */}
+        <div className="flex flex-wrap lg:flex-nowrap justify-center lg:justify-start w-full gap-6 overflow-hidden">
           {ThisMonthProducts.map((item) => {
             return (
-              <div key={item.id} className="flex flex-col w-64 gap-3">
+              <div
+                key={item.id}
+                className="flex flex-col w-full sm:w-[calc(50%-0.75rem)] md:w-64 lg:w-64 shrink-0 gap-3"
+              >
                 {/* Upper section */}
-                <div className="bg-[#F5F5F5] px-8  rounded-sm flex flex-col  h-72">
+                <div className="bg-[#F5F5F5] px-8 rounded-sm flex flex-col h-72">
                   <div className="flex justify-between items-start w-[calc(100%+3rem)] -ml-6 mt-3">
                     <div className="flex items-end ml-auto flex-col gap-2">
                       <img
@@ -42,6 +49,7 @@ const ThisMonth = () => {
                         alt="small heart"
                         className="w-5 h-5 bg-white rounded-full"
                       />
+
                       <img
                         src="/assets/eye-icon.png"
                         alt="eye-icon"
@@ -54,7 +62,7 @@ const ThisMonth = () => {
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="h-40 object-contain"
+                      className="h-40 w-full object-contain"
                     />
                   </div>
                 </div>

@@ -5,21 +5,27 @@ const TopHeader = () => {
   const percent = 50;
   return (
     <>
-      <div className=" bg-black w-full h-12 flex  items-center justify-between text-white">
-        <div className="flex items-center justify-between  container mx-auto px-8  w-auto h-fit absolute top-3 left-70 gap-8 text">
-          <div className="flex items-center justify-between gap-4">
+      <div className="bg-black w-full min-h-12 flex items-center justify-center text-white px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center text-xs sm:text-sm lg:text-base">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
             <p>
               Summer Sales For All Swim Suites And Express Delivery - OFF{" "}
               {percent}%
             </p>
-            <Link to="/" className="font-bold underline">
+
+            <Link to="/" className="font-bold underline whitespace-nowrap">
               ShopNow
             </Link>
           </div>
-        </div>
-        <div className="flex items-center gap-4 absolute right-9">
-          <p>English</p>
-          <img src="/assets/THIcon.png" alt="language select" />
+
+          <div className="hidden sm:flex items-center gap-2 absolute right-4 sm:right-9">
+            <p>English</p>
+            <img
+              src="/assets/THIcon.png"
+              alt="language select"
+              className="w-4 h-4"
+            />
+          </div>
         </div>
       </div>
     </>

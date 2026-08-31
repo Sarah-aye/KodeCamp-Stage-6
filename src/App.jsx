@@ -21,7 +21,7 @@ function App() {
         <TopHeader />
         <br />
         <Header />
-        <hr className="w-full h-0 absolute top-30 " />
+        <hr className="w-full border-0 border-t border-gray-300 mt-4 sm:mt-5 lg:mt-6" />
 
         <Routes>
           <Route path="/" element={<Home />} />

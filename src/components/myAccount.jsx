@@ -31,17 +31,29 @@ const MyAccount = () => {
           >
             <img
               src={on ? "/assets/user.png" : "/assets/account-icon.png"}
-              alt=" my account"
-              className={` rounded-full  ${on ? "bg-[#DB4444]" : ""}`}
+              alt="my account"
+              className={`rounded-full ${on ? "bg-[#DB4444]" : ""}`}
             />
           </div>
+
           {on && (
-            <div className=" absolute right-0 top-full w-60 mt-3 rounded-md shadow-xl flex flex-col gap-4 opacity-70 z-50 bg-black p-4">
+            <div className="absolute right-0 top-full z-50 mt-3 w-60 rounded-md bg-black p-4 shadow-xl opacity-90 flex flex-col gap-4 sm:w-64">
               {data.map((item) => (
-                <div key={item.id} className="flex gap-4 ">
-                  <img src={item.icon} alt={item.piece} />
+                <div
+                  key={item.id}
+                  className="flex items-center gap-4 cursor-pointer"
+                >
+                  <img
+                    src={item.icon}
+                    alt={item.piece}
+                    className="w-5 h-5 object-contain"
+                  />
+
                   {item.piece === "Logout" ? (
-                    <Link onClick={logOut} className="text-white text-sm">
+                    <Link
+                      onClick={logOut}
+                      className="text-white text-sm hover:text-gray-300"
+                    >
                       {item.piece}
                     </Link>
                   ) : (

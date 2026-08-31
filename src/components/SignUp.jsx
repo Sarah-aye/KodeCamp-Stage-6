@@ -24,30 +24,41 @@ function SignUp() {
     }
   };
   return (
-    <div className="container mx-auto pr-40 py-20 flex  items-center justify-between">
-      <div className="h-full w-auto">
-        <img src="/assets/sign-up.png" alt="sign-up landing image" />
+    <div className="container mx-auto px-4 sm:px-8 lg:pr-40 py-10 sm:py-16 lg:py-20 flex flex-col lg:flex-row gap-10 lg:gap-6 items-center justify-between">
+      {/* Image */}
+      <div className="w-full lg:w-1/2 flex justify-center">
+        <img
+          src="/assets/sign-up.png"
+          alt="sign-up landing image"
+          className="w-full max-w-md lg:max-w-none h-auto object-contain"
+        />
       </div>
-      <div className="flex flex-col gap-4">
+
+      {/* Form */}
+      <div className="flex flex-col gap-4 w-full max-w-md lg:w-auto lg:max-w-none">
         <p className="text-2xl font-bold font-poppins text-gray-800">
           Create an account
         </p>
+
         <p className="text-sm text-gray-600">Enter your details below</p>
+
         <form
           onSubmit={handleSubmit(submit)}
           action="sign-up"
-          className="flex flex-col gap-8"
+          className="flex flex-col gap-8 w-full"
         >
           <input
             name="username"
             type="text"
-            placeholder="name"
+            placeholder="Name"
             value={values.username}
             onChange={handleChange}
-            className="text-gray-400 border-b-2 border-gray-400"
+            className="w-full text-gray-400 border-b-2 border-gray-400 py-2 outline-none focus:border-gray-800"
           />
 
-          {errors.username && <p>{errors.username}</p>}
+          {errors.username && (
+            <p className="text-sm text-red-500">{errors.username}</p>
+          )}
 
           <input
             name="identifier"
@@ -55,10 +66,12 @@ function SignUp() {
             placeholder="Email or phone number"
             value={values.identifier}
             onChange={handleChange}
-            className="text-gray-400 border-b-2 border-gray-400"
+            className="w-full text-gray-400 border-b-2 border-gray-400 py-2 outline-none focus:border-gray-800"
           />
 
-          {errors.identifier && <p>{errors.identifier}</p>}
+          {errors.identifier && (
+            <p className="text-sm text-red-500">{errors.identifier}</p>
+          )}
 
           <input
             name="password"
@@ -66,35 +79,46 @@ function SignUp() {
             placeholder="Password"
             value={values.password}
             onChange={handleChange}
-            className="text-gray-400 border-b-2 border-gray-400"
+            className="w-full text-gray-400 border-b-2 border-gray-400 py-2 outline-none focus:border-gray-800"
           />
 
-          {errors.password && <p>{errors.password}</p>}
+          {errors.password && (
+            <p className="text-sm text-red-500">{errors.password}</p>
+          )}
 
-          <div className="flex w-auto h-auto">
+          <div className="flex w-full h-auto">
             <button
               type="submit"
               disabled={isSubmitting}
-              className=" w-full px-10 py-2 bg-[#DB4444] text-white rounded-sm font-poppins text-sm "
+              className="w-full px-10 py-2 bg-[#DB4444] text-white rounded-sm font-poppins text-sm"
             >
               {isSubmitting ? "Creating account..." : "Create Account"}
             </button>
           </div>
 
-          {/* for firebase phone authentication */}
+          {/* Firebase phone authentication */}
           <div id="recaptcha-container" />
 
-          <div className="flex w-auto h-auto">
-            <button className=" flex items-center justify-center gap-4 w-full px-10 py-2 border-2 border-gray-400 text-gray-600 rounded-sm font-poppins text-sm ">
+          <div className="flex w-full h-auto">
+            <button
+              type="button"
+              className="flex items-center justify-center gap-4 w-full px-10 py-2 border-2 border-gray-400 text-gray-600 rounded-sm font-poppins text-sm"
+            >
               <span>
-                <img src="/assets/google-icon.png" alt="google-icon" />
+                <img
+                  src="/assets/google-icon.png"
+                  alt="Google"
+                  className="w-5 h-5"
+                />
               </span>
               Sign Up with Google
             </button>
           </div>
         </form>
-        <div className="flex gap-1 items-center">
+
+        <div className="flex gap-1 items-center justify-center lg:justify-start">
           <p className="text-sm text-gray-400">Already have an account?</p>
+
           <NavLink to="/Login" className="underline text-gray-400 text-sm">
             Log in
           </NavLink>

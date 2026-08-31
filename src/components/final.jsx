@@ -9,27 +9,33 @@ import useCart from "../hooks/useCart";
 const FinalProduct = () => {
   const { handleCartClick, addedItemId } = useCart();
   return (
-    <div className="container mx-auto flex flex-col gap-10  w-full items-center justify-between mt-10">
-      <div className="flex flex-col justify-between items-center h-auto w-full gap-8 ">
-        <div className="flex justify-between items-end gap-40 h-full w-full">
-          <div className="flex gap-10 ">
-            <div className="flex flex-col w-auto justify-between  gap-4">
+    <div className="container mx-auto   flex flex-col gap-6 sm:gap-8 w-full items-center justify-between mt-10">
+      <div className="flex flex-col justify-between items-center h-auto w-full gap-6 sm:gap-8">
+        {/* Heading */}
+        <div className="flex justify-between items-end h-full w-full">
+          <div className="flex gap-10">
+            <div className="flex flex-col w-auto justify-between gap-4">
               <div className="flex items-end h-auto w-auto gap-3">
                 <div className="bg-[#DB4444] h-fit w-4 rounded-s-sm">
                   <button></button>
                 </div>
+
                 <p className="text-[#DB4444] font-bold">Related Items</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="flex w-full gap-4">
+        {/* Products */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex w-full gap-4">
           {product.map((item, i) => {
             return (
-              <div key={item.id} className="flex flex-col w-64 gap-3">
+              <div
+                key={item.id}
+                className="flex flex-col w-full sm:w-auto lg:w-64 gap-3"
+              >
                 {/* Upper section */}
-                <div className="bg-gray-100 px-8  rounded-sm flex flex-col  h-72">
+                <div className="bg-gray-100 px-8 rounded-sm flex flex-col h-72">
                   <div className="flex justify-between items-start w-[calc(100%+3rem)] -ml-6 mt-3">
                     {i === 3 ? (
                       ""
@@ -40,18 +46,19 @@ const FinalProduct = () => {
                     )}
 
                     <div className="flex flex-col gap-2 ml-auto">
-                      <div className=" bg-white w-5 h-5 rounded-full">
+                      <div className="bg-white w-5 h-5 rounded-full">
                         <img
                           src="/assets/heart_small.png"
                           alt="small heart"
-                          className=" object-contain "
+                          className="object-contain"
                         />
                       </div>
+
                       <div className="bg-white w-4 h-4 rounded-full">
                         <img
                           src="/assets/eye-icon.png"
                           alt="eye-icon"
-                          className=" object-contain "
+                          className="object-contain"
                         />
                       </div>
                     </div>
@@ -64,6 +71,7 @@ const FinalProduct = () => {
                       className="h-40 object-contain"
                     />
                   </div>
+
                   {i === 1 ? (
                     <div className="relative">
                       {addedItemId === item.id && (

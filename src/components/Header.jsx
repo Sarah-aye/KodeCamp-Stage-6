@@ -19,34 +19,41 @@ const Header = () => {
 
   return (
     <>
-      <div className="flex items-end justify-between container w-full mx-auto px-40 top-30 font-poppins">
-        {/* <TopHeader /> */}
-        <div>
+      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between container w-full mx-auto px-4 sm:px-8 lg:px-40 font-poppins gap-5 lg:gap-0">
+        {/* Logo */}
+        <div className="flex items-center justify-between">
           <h1 className="font-bold">Exlusive</h1>
         </div>
-        <div>
+
+        {/* Navigation */}
+        <div className="w-full lg:w-auto">
           <NavBar />
         </div>
-        <div className="flex items-center justify-between gap-4">
-          <div className="w-fit h-fit rounded flex items-center justify-between gap-4 pt-1.75 pr-3 pb-1.75 pl-5 relative bg-[#F5F5F5]">
-            <div>
+
+        {/* Search + Actions */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 w-full lg:w-auto">
+          {/* Search */}
+          <div className="w-full sm:w-fit h-fit rounded flex items-center justify-between gap-4 pt-1.75 pr-3 pb-1.75 pl-5 relative bg-[#F5F5F5]">
+            <div className="flex-1">
               <input
                 type="text"
                 placeholder="What are you looking for?"
-                className="w-auto h-auto opacity-50 font-normal text-xs leading-4.5 tracking-normal"
+                className="w-full sm:w-auto h-auto opacity-50 font-normal text-xs leading-4.5 tracking-normal outline-none bg-transparent"
               />
             </div>
+
             <div>
               <img
                 src="/assets/searchIcon.png"
                 alt="search icon"
-                className="w-6 h-6  "
+                className="w-6 h-6"
               />
             </div>
           </div>
 
-          {/* implementing render prop on the wishlist heart icon */}
-          <div className="flex items-center justify-between gap-4">
+          {/* Wishlist + Cart + Account */}
+          {/* Wishlist + Cart + Account */}
+          <div className="flex items-center justify-start lg:justify-end gap-4">
             <ToggleComponent
               render={(on, toggle) => (
                 <div className="relative cursor-pointer">
@@ -83,7 +90,7 @@ const Header = () => {
                   >
                     <img
                       src="/assets/Cart1.png"
-                      alt="wishlist"
+                      alt="cart"
                       className="w-6 h-6"
                     />
                   </button>
@@ -97,7 +104,6 @@ const Header = () => {
               )}
             />
 
-            {/* <img src="/assets/Cart1.png" alt=" cart icon" /> */}
             <MyAccount />
           </div>
         </div>

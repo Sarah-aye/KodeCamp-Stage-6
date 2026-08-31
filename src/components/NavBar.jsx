@@ -6,8 +6,9 @@ import { X, Menu } from "lucide-react";
 const NavBar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="font-poppins ">
-      <div flex items-center justify-between>
+    <div className="font-poppins">
+      <div className="flex items-center justify-between">
+        {/* Desktop / Tablet Navigation */}
         <div className="hidden md:flex items-center gap-4">
           <NavLink
             to="/"
@@ -15,18 +16,21 @@ const NavBar = () => {
           >
             Home
           </NavLink>
+
           <NavLink
             to="/contact"
             className={({ isActive }) => (isActive ? "underline" : "")}
           >
             Contact
           </NavLink>
+
           <NavLink
             to="/about"
             className={({ isActive }) => (isActive ? "underline" : "")}
           >
             About
           </NavLink>
+
           <NavLink
             to="/signup"
             className={({ isActive }) => (isActive ? "underline" : "")}
@@ -34,11 +38,14 @@ const NavBar = () => {
             Sign Up
           </NavLink>
         </div>
+
+        {/* Mobile Menu Button */}
         <button className="md:hidden" onClick={() => setOpen(!open)}>
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
+      {/* Mobile Navigation */}
       {open && (
         <div className="flex flex-col gap-4 mt-4 md:hidden">
           <NavLink
