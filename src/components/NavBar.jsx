@@ -22,16 +22,16 @@ const NavBar = () => {
             Contact
           </NavLink>
           <NavLink
-            to="about"
+            to="/about"
             className={({ isActive }) => (isActive ? "underline" : "")}
           >
             About
           </NavLink>
           <NavLink
-            to="signup"
+            to="/signup"
             className={({ isActive }) => (isActive ? "underline" : "")}
           >
-            Signup
+            Sign Up
           </NavLink>
         </div>
         <button className="md:hidden" onClick={() => setOpen(!open)}>
