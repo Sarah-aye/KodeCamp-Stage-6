@@ -66,7 +66,7 @@ const Cart = () => {
           <div className="flex items-center gap-4">
             <div className="relative shrink-0">
               <img
-                src={item.icon}
+                src={item.icon || item.image}
                 alt={item.name}
                 className="h-10 w-10 object-contain"
               />
