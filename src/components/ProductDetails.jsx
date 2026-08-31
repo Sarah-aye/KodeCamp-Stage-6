@@ -56,7 +56,7 @@ const ProductDetails = () => {
                 className="w-full flex-1 px-2 sm:px-3 py-2 sm:py-3 bg-gray-100 rounded-sm"
               >
                 <img
-                  src={product.icon}
+                  src={product.icon || product.image}
                   alt={product.name}
                   className="w-full h-full object-contain"
                 />
@@ -67,7 +67,7 @@ const ProductDetails = () => {
           {/* Main Image */}
           <div className="flex w-[75%] lg:w-[70%] h-[300px] sm:h-full bg-gray-100 rounded-sm items-center justify-center px-3">
             <img
-              src={product.icon}
+              src={product.icon || product.image}
               alt={product.name}
               className="w-full h-full object-contain"
             />
