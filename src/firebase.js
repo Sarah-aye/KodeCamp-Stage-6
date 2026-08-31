@@ -14,3 +14,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
+
+console.log("Firebase config check:", {
+  apiKeyExists: !!import.meta.env.VITE_FIREBASE_API_KEY,
+  apiKeyLength: import.meta.env.VITE_FIREBASE_API_KEY?.length,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+});
