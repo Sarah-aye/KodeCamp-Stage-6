@@ -2,9 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { X, Menu } from "lucide-react";
+import { useAuth } from "../hooks/useAuth";
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
+  const { user } = useAuth();
   return (
     <div className="font-poppins">
       <div className="flex items-center justify-between">
@@ -31,12 +33,23 @@ const NavBar = () => {
             About
           </NavLink>
 
-          <NavLink
-            to="/signup"
-            className={({ isActive }) => (isActive ? "underline" : "")}
-          >
-            Sign Up
-          </NavLink>
+          {!user && (
+            <>
+              <NavLink
+                to="/signup"
+                className={({ isActive }) => (isActive ? "underline" : "")}
+              >
+                Sign Up
+              </NavLink>
+
+              <NavLink
+                to="/login"
+                className={({ isActive }) => (isActive ? "underline" : "")}
+              >
+                Log In
+              </NavLink>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -72,13 +85,23 @@ const NavBar = () => {
             About
           </NavLink>
 
-          <NavLink
-            to="/signup"
-            className={({ isActive }) => (isActive ? "underline" : "")}
-            onClick={() => setOpen(false)}
-          >
-            Signup
-          </NavLink>
+          {!user && (
+            <>
+              <NavLink
+                to="/signup"
+                className={({ isActive }) => (isActive ? "underline" : "")}
+              >
+                Sign Up
+              </NavLink>
+
+              <NavLink
+                to="/login"
+                className={({ isActive }) => (isActive ? "underline" : "")}
+              >
+                Log In
+              </NavLink>
+            </>
+          )}
         </div>
       )}
     </div>

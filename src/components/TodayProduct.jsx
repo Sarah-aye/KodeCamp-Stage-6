@@ -3,11 +3,13 @@ import Countdown from "../utils/CountDown";
 import { product } from "../data/todays";
 import StarComponent from "./starComponent";
 // import { Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 import useCart from "../hooks/useCart";
 
 const TodayProduct = () => {
   const { handleCartClick, addedItemId } = useCart();
+  const { user } = useAuth();
   return (
     <div className="container mx-auto px-4 sm:px-8 lg:px-40 flex flex-col gap-10 w-full items-center justify-between mt-10">
       <div className="flex flex-col justify-between items-center h-auto w-full gap-8">
@@ -103,7 +105,12 @@ const TodayProduct = () => {
 
                       <button
                         onClick={() => handleCartClick(item)}
-                        className="bg-black text-white w-[calc(100%+4rem)] -ml-8 py-2 rounded-b-sm flex items-center gap-3 justify-center cursor-pointer"
+                        disabled={!user}
+                        className={`bg-black text-white w-[calc(100%+4rem)] -ml-8 py-2 rounded-b-sm flex items-center gap-3 justify-center ${
+                          user
+                            ? "cursor-pointer"
+                            : "cursor-not-allowed opacity-90"
+                        }`}
                       >
                         <span>
                           <img src="/assets/cart-icon.png" alt="cart icon" />

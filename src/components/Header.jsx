@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { upper } from "../data/wishList1";
 import ToggleComponent from "./toggle";
 import { useSelector } from "react-redux";
+import { useAuth } from "../hooks/useAuth";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ const Header = () => {
   const productDetails = location.pathname === "/productdetails";
 
   const cartItems = useSelector((state) => state.cart.items);
+
+  const { user } = useAuth();
 
   return (
     <>
@@ -54,57 +57,77 @@ const Header = () => {
           {/* Wishlist + Cart + Account */}
           {/* Wishlist + Cart + Account */}
           <div className="flex items-center justify-start lg:justify-end gap-4">
-            <ToggleComponent
-              render={(on, toggle) => (
-                <div className="relative cursor-pointer">
-                  <button
-                    onClick={() => {
-                      toggle();
-                      navigate("/wishlist");
-                    }}
-                  >
-                    <img
-                      src="/assets/heart.png"
-                      alt="wishlist"
-                      className="w-6 h-6"
-                    />
-                  </button>
+            {user ? (
+              <ToggleComponent
+                render={(on, toggle) => (
+                  <div className="relative cursor-pointer">
+                    <button
+                      onClick={() => {
+                        toggle();
+                        navigate("/wishlist");
+                      }}
+                    >
+                      <img
+                        src="/assets/heart.png"
+                        alt="wishlist"
+                        className="w-6 h-6 cursor-pointer"
+                      />
+                    </button>
 
-                  {(isWishlist || isCart || "/") && (
-                    <span className="absolute -right-1 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-[#DB4444] text-xs text-white">
-                      {upper.length}
-                    </span>
-                  )}
-                </div>
-              )}
-            />
+                    {user &&
+                      (isWishlist || isCart || productDetails || "/") && (
+                        <span className="absolute -right-1 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-[#DB4444] text-xs text-white">
+                          {upper.length}
+                        </span>
+                      )}
+                  </div>
+                )}
+              />
+            ) : (
+              <div className="relative">
+                <img
+                  src="/assets/heart.png"
+                  alt="wishlist"
+                  className="w-6 h-6 cursor-pointer"
+                />
+              </div>
+            )}
+            {user ? (
+              <ToggleComponent
+                render={(on, toggle) => (
+                  <div className="relative cursor-pointer">
+                    <button
+                      onClick={() => {
+                        toggle();
+                        navigate("/cart");
+                      }}
+                    >
+                      <img
+                        src="/assets/Cart1.png"
+                        alt="cart"
+                        className="w-6 h-6 cursor-pointer"
+                      />
+                    </button>
 
-            <ToggleComponent
-              render={(on, toggle) => (
-                <div className="relative cursor-pointer">
-                  <button
-                    onClick={() => {
-                      toggle();
-                      navigate("/cart");
-                    }}
-                  >
-                    <img
-                      src="/assets/Cart1.png"
-                      alt="cart"
-                      className="w-6 h-6"
-                    />
-                  </button>
-
-                  {(productDetails || isCart || isWishlist || "/") && (
-                    <span className="absolute -right-1 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-[#DB4444] text-xs text-white">
-                      {cartItems.length}
-                    </span>
-                  )}
-                </div>
-              )}
-            />
-
-            <MyAccount />
+                    {user &&
+                      (productDetails || isCart || isWishlist || "/") && (
+                        <span className="absolute -right-1 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-[#DB4444] text-xs text-white">
+                          {cartItems.length}
+                        </span>
+                      )}
+                  </div>
+                )}
+              />
+            ) : (
+              <div className="relative">
+                <img
+                  src="/assets/Cart1.png"
+                  alt="wishlist"
+                  className="w-6 h-6 cursor-pointer"
+                />
+              </div>
+            )}
+            {user && <MyAccount />}
           </div>
         </div>
       </div>
