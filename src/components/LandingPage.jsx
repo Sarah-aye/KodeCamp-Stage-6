@@ -17,12 +17,12 @@ console.log("type of data is:", typeof data);
 
 const LandingPage = () => {
   return (
-    <div className="container w-full mx-auto mt-10 px-4 sm:px-8 lg:px-40">
+    <div className="container w-full mx-auto mt-0  px-4 sm:px-8 lg:px-40">
       <div className="items-center grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 lg:gap-10">
         {/* Categories */}
-        <div className="grid p-4 sm:p-6 lg:p-8 items-start border-r-0 lg:border-r gap-4">
+        <div className="grid p-4 sm:p-6 lg:p-8 items-start border-r-0 lg:border-r gap-4 py-20 ">
           {data.map((item, i) => (
-            <div className="grid gap-4" key={i}>
+            <div className="grid gap-4 " key={i}>
               <div className="grid">
                 <div className="grid grid-cols-[1fr_auto] gap-6 lg:gap-10">
                   <p className="font-poppins text-sm sm:text-base">{item}</p>
