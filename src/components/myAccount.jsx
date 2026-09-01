@@ -62,11 +62,17 @@ const MyAccount = () => {
               sm:w-56
               sm:p-4
               sm:gap-4
+              sm:top-full
+              sm:left-auto
+              sm:right-0
 
               lg:mt-3
               lg:w-60
               lg:p-4
               lg:gap-4
+              lg:top-full
+              lg:left-auto
+              lg:right-0
             "
             >
               {data.map((item) => (
