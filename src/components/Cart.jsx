@@ -140,9 +140,12 @@ const Cart = () => {
 
       {/* Cart Buttons */}
       <div className="flex flex-col sm:flex-row w-full items-stretch sm:items-center justify-between gap-4">
-        <button className="px-5 py-2 border w-full sm:w-auto rounded-sm">
+        <Link
+          to="/wishlist"
+          className="px-5 py-2 border w-full sm:w-auto rounded-sm cursor-pointer"
+        >
           Return To Shop
-        </button>
+        </Link>
 
         <button className="px-5 py-2 border w-full sm:w-auto rounded-sm">
           Update Cart
