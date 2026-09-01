@@ -25,39 +25,105 @@ const MyAccount = () => {
     <ToggleComponent
       render={(on, toggle) => (
         <div className="relative">
+          {/* Account Icon */}
           <div
-            className="flex items-center justify-between gap-4 cursor-pointer"
+            className="flex items-center justify-center cursor-pointer"
             onClick={toggle}
           >
             <img
               src={on ? "/assets/user.png" : "/assets/account-icon.png"}
               alt="my account"
-              className={`rounded-full ${on ? "bg-[#DB4444]" : ""}`}
+              className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-auto lg:h-auto rounded-full ${
+                on ? "bg-[#DB4444]" : ""
+              }`}
             />
           </div>
 
+          {/* Dropdown */}
           {on && (
-            <div className="absolute right-0 top-full z-50 mt-3 w-60 rounded-md bg-black p-4 shadow-xl opacity-90 flex flex-col gap-4 sm:w-64">
+            <div
+              className="
+              absolute
+              top-full
+              left-0
+              z-50
+              mt-2
+              w-52
+              rounded-md
+              bg-black
+              p-3
+              shadow-xl
+              opacity-90
+              flex
+              flex-col
+              gap-3
+
+              sm:mt-3
+              sm:w-56
+              sm:p-4
+              sm:gap-4
+
+              lg:mt-3
+              lg:w-60
+              lg:p-4
+              lg:gap-4
+            "
+            >
               {data.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center gap-4 cursor-pointer"
+                  className="
+                  flex
+                  items-center
+                  gap-3
+                  cursor-pointer
+
+                  sm:gap-4
+                  lg:gap-4
+                "
                 >
                   <img
                     src={item.icon}
                     alt={item.piece}
-                    className="w-5 h-5 object-contain"
+                    className="
+                    w-4
+                    h-4
+                    object-contain
+
+                    sm:w-5
+                    sm:h-5
+
+                    lg:w-auto
+                    lg:h-auto
+                  "
                   />
 
                   {item.piece === "Logout" ? (
                     <Link
                       onClick={logOut}
-                      className="text-white text-sm hover:text-gray-300"
+                      className="
+                      text-white
+                      text-xs
+                      hover:text-gray-300
+
+                      sm:text-sm
+                      lg:text-sm
+                    "
                     >
                       {item.piece}
                     </Link>
                   ) : (
-                    <p className="text-white text-sm">{item.piece}</p>
+                    <p
+                      className="
+                      text-white
+                      text-xs
+
+                      sm:text-sm
+                      lg:text-sm
+                    "
+                    >
+                      {item.piece}
+                    </p>
                   )}
                 </div>
               ))}
